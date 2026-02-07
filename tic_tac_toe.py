@@ -24,6 +24,17 @@ def toggle_player():
     current_player = "x" if current_player =="0" else "0"
     lable.config(text=f" player {current_player} 's turn")
 
+#  for the reset button
+def reset_game():
+    global current_player, winner
+    current_player= "x"
+    winner=False
+    lable.config(text=f"player {current_player} 's turn")
+    for b in buttons:
+        b.config(text="",bg="systembuttonface", state="normal")
+
+
+
 root=tk.Tk()  # create the main window
 root.title("tic_tac_toe")  # 
 
@@ -36,5 +47,8 @@ current_player="x"
 winner=False   # to keep track of the winner
 lable=tk.Label(root,text=f"player {current_player} 's turn", font=("normal",20))     
 lable.grid(row=3, column=0, columnspan=3)  # display the current player's turn
+
+reset_btn=tk.Button(root,text="reset", font=("normal", 20), command=reset_game)
+reset_btn.grid(row=4, column=0, columnspan=3)  # place the reset button below the game grid
 
 root.mainloop()  # start the GUI event loop
