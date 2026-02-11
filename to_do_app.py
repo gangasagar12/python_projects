@@ -25,3 +25,19 @@ while True:
             ind=tasks.index(update_val)
             tasks[ind]=up
             print(f"updated task{up}")
+
+    elif operation==3:
+        del_val=input("which task you want to delete =")
+        if del_val in tasks:
+            ind=tasks.index(del_val)
+            del tasks[ind]
+            print(f"task {del_val} has been deleted:")
+
+    elif operation==4:
+        print(f"total trasks={tasks}")
+
+    elif operation==5:
+        print("closing the program...")
+        break
+    else:
+        print("invilid inpits")
